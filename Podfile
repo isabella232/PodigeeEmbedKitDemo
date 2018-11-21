@@ -4,6 +4,6 @@ target 'PodigeeEmbedKitDemo' do
   use_frameworks!
 
   # Pods for PodigeeEmbedKitDemo
-  pod 'PodigeeEmbedKit', :git => 'https://github.com/podigee/PodigeeEmbedKit.git', :branch => 'develop'
+  pod 'PodigeeEmbedKit', :git => 'https://github.com/podigee/PodigeeEmbedKit.git', :branch => 'master'
 
 end
