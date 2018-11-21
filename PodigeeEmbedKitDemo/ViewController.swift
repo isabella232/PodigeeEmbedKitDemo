@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PodigeeEmbedKit
 
 class ViewController: UIViewController {
 
