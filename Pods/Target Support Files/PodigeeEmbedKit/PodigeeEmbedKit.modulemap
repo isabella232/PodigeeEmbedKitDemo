@@ -1,0 +1,6 @@
+framework module PodigeeEmbedKit {
+  umbrella header "PodigeeEmbedKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

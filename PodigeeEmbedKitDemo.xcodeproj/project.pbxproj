@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD515835273D8C0511DD8D8E /* Pods_PodigeeEmbedKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD5A73B42C18A7D093C7815 /* Pods_PodigeeEmbedKitDemo.framework */; };
 		F89E02C321A5538E00BB53C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89E02C221A5538E00BB53C7 /* AppDelegate.swift */; };
 		F89E02C521A5538E00BB53C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89E02C421A5538E00BB53C7 /* ViewController.swift */; };
 		F89E02C821A5538E00BB53C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F89E02C621A5538E00BB53C7 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AD5A73B42C18A7D093C7815 /* Pods_PodigeeEmbedKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodigeeEmbedKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6387F81DE520EBD763FF8AA4 /* Pods-PodigeeEmbedKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodigeeEmbedKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodigeeEmbedKitDemo/Pods-PodigeeEmbedKitDemo.release.xcconfig"; sourceTree = "<group>"; };
+		7105CE4B960862BEE5EC7D69 /* Pods-PodigeeEmbedKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodigeeEmbedKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PodigeeEmbedKitDemo/Pods-PodigeeEmbedKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		F89E02BF21A5538E00BB53C7 /* PodigeeEmbedKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodigeeEmbedKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89E02C221A5538E00BB53C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F89E02C421A5538E00BB53C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD515835273D8C0511DD8D8E /* Pods_PodigeeEmbedKitDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7AE65D52A36044A5C7525711 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1AD5A73B42C18A7D093C7815 /* Pods_PodigeeEmbedKitDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		926D2F1A034169ED9D6B3952 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7105CE4B960862BEE5EC7D69 /* Pods-PodigeeEmbedKitDemo.debug.xcconfig */,
+				6387F81DE520EBD763FF8AA4 /* Pods-PodigeeEmbedKitDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F89E02B621A5538E00BB53C7 = {
 			isa = PBXGroup;
 			children = (
 				F89E02C121A5538E00BB53C7 /* PodigeeEmbedKitDemo */,
 				F89E02C021A5538E00BB53C7 /* Products */,
+				926D2F1A034169ED9D6B3952 /* Pods */,
+				7AE65D52A36044A5C7525711 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F89E02D121A5539000BB53C7 /* Build configuration list for PBXNativeTarget "PodigeeEmbedKitDemo" */;
 			buildPhases = (
+				37D0BD681CECFC90DDCEE7D1 /* [CP] Check Pods Manifest.lock */,
 				F89E02BB21A5538E00BB53C7 /* Sources */,
 				F89E02BC21A5538E00BB53C7 /* Frameworks */,
 				F89E02BD21A5538E00BB53C7 /* Resources */,
+				7464188573A30FBEDFEEA3AD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		37D0BD681CECFC90DDCEE7D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PodigeeEmbedKitDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7464188573A30FBEDFEEA3AD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PodigeeEmbedKitDemo/Pods-PodigeeEmbedKitDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PodigeeEmbedKit/PodigeeEmbedKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PodigeeEmbedKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PodigeeEmbedKitDemo/Pods-PodigeeEmbedKitDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F89E02BB21A5538E00BB53C7 /* Sources */ = {
@@ -280,6 +353,7 @@
 		};
 		F89E02D221A5539000BB53C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7105CE4B960862BEE5EC7D69 /* Pods-PodigeeEmbedKitDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +372,7 @@
 		};
 		F89E02D321A5539000BB53C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6387F81DE520EBD763FF8AA4 /* Pods-PodigeeEmbedKitDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
