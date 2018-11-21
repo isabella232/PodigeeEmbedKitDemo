@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,62 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PodigeeEmbedKitDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Oq-y3-3GH">
+                                <rect key="frame" x="56.5" y="50" width="262.5" height="262.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6Oq-y3-3GH" secondAttribute="height" multiplier="1:1" id="VB7-OO-2ns"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Podcast Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVO-Xu-des">
+                                <rect key="frame" x="135" y="324.5" width="105" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episode Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfB-eR-B0M">
+                                <rect key="frame" x="143" y="357.5" width="89" height="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uN3-5m-1li">
+                                <rect key="frame" x="171.5" y="425.5" width="32" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="togglePlayback:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6RQ-Pn-C1B"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bVO-Xu-des" firstAttribute="top" secondItem="6Oq-y3-3GH" secondAttribute="bottom" constant="12" id="ERG-q2-Oba"/>
+                            <constraint firstItem="uN3-5m-1li" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FmT-4u-hSj"/>
+                            <constraint firstItem="6Oq-y3-3GH" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YF9-Q5-2uJ"/>
+                            <constraint firstItem="bVO-Xu-des" firstAttribute="centerX" secondItem="6Oq-y3-3GH" secondAttribute="centerX" id="d0Q-TA-p6L"/>
+                            <constraint firstItem="6Oq-y3-3GH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="feF-J3-TXf"/>
+                            <constraint firstItem="uN3-5m-1li" firstAttribute="top" secondItem="BfB-eR-B0M" secondAttribute="bottom" constant="50" id="jgm-JX-sYe"/>
+                            <constraint firstItem="6Oq-y3-3GH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="vXY-qQ-kQa"/>
+                            <constraint firstItem="BfB-eR-B0M" firstAttribute="centerX" secondItem="bVO-Xu-des" secondAttribute="centerX" id="yYH-ho-l0V"/>
+                            <constraint firstItem="BfB-eR-B0M" firstAttribute="top" secondItem="bVO-Xu-des" secondAttribute="bottom" constant="12" id="yz8-xi-mKt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="coverartImageView" destination="6Oq-y3-3GH" id="HCX-8O-zmt"/>
+                        <outlet property="episodeTitle" destination="BfB-eR-B0M" id="xlM-ho-VWN"/>
+                        <outlet property="playbackButton" destination="uN3-5m-1li" id="rAV-6k-WRd"/>
+                        <outlet property="podcastTitleLabel" destination="bVO-Xu-des" id="IoL-Pm-JiY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
