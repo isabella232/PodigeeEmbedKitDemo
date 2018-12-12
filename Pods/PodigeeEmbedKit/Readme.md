@@ -1,3 +1,4 @@
+
 # PodigeeEmbedKit
 
 [![Platforms](https://img.shields.io/badge/platform-ios%20%7C%20macOS%20%7C%20watchOS%20%7C%20tvOS-lightgrey.svg)](#)
@@ -11,6 +12,8 @@ The `PodigeeEmbedKit` framework allows you to display information about a podcas
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Full Documentation](#documentation)
+- [iOS Demo Project](#demo)
 - [License](#license)
 
 ## Requirements
@@ -64,7 +67,7 @@ $ brew install carthage
 To integrate PodigeeEmbedKit into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "podigee/PodigeeEmbedKit" ~> 0.0.1
+github "podigee/PodigeeEmbedKit" ~> 1.0.0
 ```
 
 </details>
@@ -82,7 +85,7 @@ import PackageDescription
 let package = Package(
     name: "HelloPodigeeEmbedKit",
     dependencies: [
-        .package(url: "https://github.com/podigee/PodigeeEmbedKit.git", .upToNextMajor(from: "0.0.1"))
+        .package(url: "https://github.com/podigee/PodigeeEmbedKit.git", .upToNextMajor(from: "1.0.0"))
     ],
     targets: [
         .target(name: "HelloPodigeeEmbedKit", dependencies: ["PodigeeEmbedKit"])
@@ -127,7 +130,16 @@ public struct PodcastEmbed: Codable {
 
 Extensions include several boolean toggles which can be defined in the Podigee webinterface for external player embeds. Using these settings you can define if the player should show a download button, or the chapter marks for example. It is up to you to use these toggles to actually have an effect on your UI.
 
-Please [take a look at the full API documentation]() for more information.
+Please [take a look at the full API documentation](#documentation) for more information.
+
+**Handling coverart images**
+
+When you want to display a coverart image you can request a specific image size from the API. All coverart images are squares so you only define a custom width.
+
+```swift
+let episode = podcastEmbed?.episode
+let url = episode.coverartUrlFor(width: 720)
+```
 
 ### Request embed data for specific episode
 
@@ -181,6 +193,17 @@ Episodes can either be sorted by publish date or by episode number. If you do no
       let episodes = playlist.episodes
   })
 ```
+
+## Documentation
+
+You can find the full API documentation in the `docs` folder:
+
+* Download and extract the repository contents
+* Open `docs/index.html`
+
+# Demo
+
+There also is a simple iOS demo project to demonstrate how this framework can be used to display podcast and episode content in an iOS app. [You can find the repository of the demo project here](https://github.com/podigee/PodigeeEmbedKitDemo).
 
 ## Author
 

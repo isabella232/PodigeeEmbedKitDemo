@@ -1,6 +1,6 @@
 {
   "name": "PodigeeEmbedKit",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/podigee/PodigeeEmbedKit.git",
-    "tag": "v0.0.1"
+    "tag": "v1.0.0"
   },
   "platforms": {
     "ios": "10.0",
