@@ -44,14 +44,17 @@ class ViewController: UIViewController {
     }
     
     private func updateCoverart() {
-        guard let coverartUrl = self.podcastEmbed?.episode?.coverUrl else { return }
-        URLSession.shared.dataTask(with: coverartUrl, completionHandler: { (data, response, error) in
-            guard let data = data else { return }
-            let image = UIImage(data: data)
-            DispatchQueue.main.async {
-                self.coverartImageView.image = image
-            }
-        }).resume()
+        DispatchQueue.main.async {
+            let coverartWidth = Int(self.coverartImageView.bounds.width)
+            guard let coverartUrl = self.podcastEmbed?.episode?.coverartUrlFor(width: coverartWidth) else { return }
+            URLSession.shared.dataTask(with: coverartUrl, completionHandler: { (data, response, error) in
+                guard let data = data else { return }
+                let image = UIImage(data: data)
+                DispatchQueue.main.async {
+                    self.coverartImageView.image = image
+                }
+            }).resume()
+        }
     }
 
     @IBAction func togglePlayback(_ sender: UIButton) {
