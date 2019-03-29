@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -44,11 +44,11 @@
 		6954F772006353B54272B54406522D43 /* PodigeeEmbedKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PodigeeEmbedKit.swift; path = Sources/Core/PodigeeEmbedKit.swift; sourceTree = "<group>"; };
 		7FCF3C38F88DE6325D08825D492D259A /* Pods-PodigeeEmbedKitDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PodigeeEmbedKitDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
 		87287181FDA68E2437D143305D34FC68 /* Podcast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Podcast.swift; path = Sources/Core/Model/Podcast.swift; sourceTree = "<group>"; };
-		918DBD01C849F07A014ED973F2F6D02E /* PodigeeEmbedKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PodigeeEmbedKit.framework; path = PodigeeEmbedKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		918DBD01C849F07A014ED973F2F6D02E /* PodigeeEmbedKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PodigeeEmbedKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		939B2C0783A9FBEA285F0B8902104DD6 /* PodigeeEmbedKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PodigeeEmbedKit.xcconfig; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F3D56D996C4F23CD0058D87109B8917 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Sources/Core/Model/Extensions.swift; sourceTree = "<group>"; };
-		ACA09C294F601BB08AB0035C8D4EAD9F /* Pods_PodigeeEmbedKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PodigeeEmbedKitDemo.framework; path = "Pods-PodigeeEmbedKitDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACA09C294F601BB08AB0035C8D4EAD9F /* Pods_PodigeeEmbedKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodigeeEmbedKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B464D0F5B6C75EB9499B224A2A8AA1F8 /* Pods-PodigeeEmbedKitDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PodigeeEmbedKitDemo.modulemap"; sourceTree = "<group>"; };
 		BDB88273A66B67ADEC17F49B539DD105 /* Pods-PodigeeEmbedKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PodigeeEmbedKitDemo.release.xcconfig"; sourceTree = "<group>"; };
 		C4B289C0B0A93FDB7A07CCA89846C486 /* Pods-PodigeeEmbedKitDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PodigeeEmbedKitDemo-umbrella.h"; sourceTree = "<group>"; };
@@ -143,7 +143,6 @@
 				57494BF576F7C22FEB9D4FE159B93BDA /* Core */,
 				23C3643FA0AE7BB7A611A28609968657 /* Support Files */,
 			);
-			name = PodigeeEmbedKit;
 			path = PodigeeEmbedKit;
 			sourceTree = "<group>";
 		};
@@ -248,14 +247,15 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 997143CC7D714583B64B80AB9F7A12D1 /* Products */;
@@ -337,11 +337,7 @@
 				INFOPLIST_FILE = "Target Support Files/PodigeeEmbedKit/PodigeeEmbedKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/PodigeeEmbedKit/PodigeeEmbedKit.modulemap";
 				PRODUCT_MODULE_NAME = PodigeeEmbedKit;
 				PRODUCT_NAME = PodigeeEmbedKit;
@@ -359,6 +355,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -408,8 +405,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -433,11 +429,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-PodigeeEmbedKitDemo/Pods-PodigeeEmbedKitDemo-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-PodigeeEmbedKitDemo/Pods-PodigeeEmbedKitDemo.modulemap";
 				OTHER_LDFLAGS = "";
@@ -457,6 +449,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -535,11 +528,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-PodigeeEmbedKitDemo/Pods-PodigeeEmbedKitDemo-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-PodigeeEmbedKitDemo/Pods-PodigeeEmbedKitDemo.modulemap";
 				OTHER_LDFLAGS = "";
@@ -574,11 +563,7 @@
 				INFOPLIST_FILE = "Target Support Files/PodigeeEmbedKit/PodigeeEmbedKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/PodigeeEmbedKit/PodigeeEmbedKit.modulemap";
 				PRODUCT_MODULE_NAME = PodigeeEmbedKit;
 				PRODUCT_NAME = PodigeeEmbedKit;
