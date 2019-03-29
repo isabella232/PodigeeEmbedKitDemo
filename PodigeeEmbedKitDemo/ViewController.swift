@@ -27,11 +27,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        PodigeeEmbedKit.embedDataForPodcastWith(domain: "podcast-news.podigee.io") { (podcastEmbed, error) in
-            if let error = error {
+        PodigeeEmbedKit.embedDataForPodcastWith(domain: "podcast-news.podigee.io") { result in
+            switch result {
+            case .failure(let error):
                 print(error.localizedDescription)
+            case .success(let podcastEmbed):
+                self.podcastEmbed = podcastEmbed
             }
-            self.podcastEmbed = podcastEmbed
         }
     }
     
