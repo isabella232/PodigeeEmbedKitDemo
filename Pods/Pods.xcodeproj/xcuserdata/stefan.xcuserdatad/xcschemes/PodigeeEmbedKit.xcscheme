@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B7E9FE5F47BAF0435EB2C3DDAD914B46"
+               BlueprintIdentifier = "37409B2D91986A1A618F71F634405158"
+               BuildableName = "PodigeeEmbedKit.framework"
                BlueprintName = "PodigeeEmbedKit"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "PodigeeEmbedKit.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

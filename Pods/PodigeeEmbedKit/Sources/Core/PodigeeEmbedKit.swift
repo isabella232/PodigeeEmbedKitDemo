@@ -15,6 +15,7 @@ public class PodigeeEmbedKit {
         case invalidPodcastDomain
         case invalidPageSize
         case invalidOffset
+        case unknown
     }
     
     public enum PlaylistSorting: String {
@@ -37,14 +38,14 @@ public class PodigeeEmbedKit {
      - Parameter complete: The closure called when the network request is finished.
      - returns: Void
     */
-    public static func embedDataForPodcastWith(domain: String, episodePath: String? = nil, complete: @escaping (_ embed: PodcastEmbed?, _ error: Error?) -> Void) {
+    public static func embedDataForPodcastWith(domain: String, episodePath: String? = nil, complete: @escaping (_ result: Result<PodcastEmbed, Error>) -> Void) {
         var components = URLComponents()
         components.host = domain
         components.queryItems = [URLQueryItem(name: "context", value: "external")]
         components.scheme = "https"
         
         guard var url = components.url else {
-            complete(nil, PodigeeError.invalidPodcastDomain)
+            complete(.failure(PodigeeError.invalidPodcastDomain))
             return
         }
         if let path = episodePath {
@@ -55,14 +56,18 @@ public class PodigeeEmbedKit {
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else {
-                complete(nil, error)
+                if let error = error {
+                    complete(.failure(error))
+                } else {
+                    complete(.failure(PodigeeError.unknown))
+                }
                 return
             }
             do {
                 let embed = try jsonDecoder.decode(PodcastEmbed.self, from: data)
-                complete(embed, nil)
+                complete(.success(embed))
             } catch {
-                complete(nil, error)
+                complete(.failure(error))
             }
         }.resume()
     }
@@ -76,13 +81,13 @@ public class PodigeeEmbedKit {
      - Parameter complete: The closure called when the network request is finished. If successfull you receive an array of episodes.
      - returns: Void
      */
-    public static func playlistForPodcastWith(domain: String, pageSize: Int = 10, offset: Int = 0, sortBy: PlaylistSorting = .publishDate, complete: @escaping (_ playlist: Playlist?, _ error: Error?) -> Void) {
+    public static func playlistForPodcastWith(domain: String, pageSize: Int = 10, offset: Int = 0, sortBy: PlaylistSorting = .publishDate, complete: @escaping (_ result: Result<Playlist, Error>) -> Void) {
         guard pageSize > 0 else {
-            complete(nil, PodigeeError.invalidPageSize)
+            complete(.failure(PodigeeError.invalidPageSize))
             return
         }
         guard offset >= 0 else {
-            complete(nil, PodigeeError.invalidOffset)
+            complete(.failure(PodigeeError.invalidOffset))
             return
         }
         var components = URLComponents()
@@ -97,7 +102,7 @@ public class PodigeeEmbedKit {
         components.scheme = "https"
         
         guard let url = components.url else {
-            complete(nil, PodigeeError.invalidPodcastDomain)
+            complete(.failure(PodigeeError.invalidPodcastDomain))
             return
         }
         var request = URLRequest(url: url)
@@ -105,14 +110,18 @@ public class PodigeeEmbedKit {
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else {
-                complete(nil, error)
+                if let error = error {
+                    complete(.failure(error))
+                } else {
+                    complete(.failure(PodigeeError.unknown))
+                }
                 return
             }
             do {
                 let playlist = try jsonDecoder.decode(Playlist.self, from: data)
-                complete(playlist, nil)
+                complete(.success(playlist))
             } catch {
-                complete(nil, error)
+                complete(.failure(error))
             }
         }.resume()
     }

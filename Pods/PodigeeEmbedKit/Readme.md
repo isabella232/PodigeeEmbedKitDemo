@@ -19,7 +19,7 @@ The `PodigeeEmbedKit` framework allows you to display information about a podcas
 ## Requirements
 
 - iOS 10.0+ / Mac OS X 10.10+ / tvOS 10.0+ / watchOS 3.0+
-- Xcode 10.0+
+- Swift 5.0+ / Xcode 10.2+
 
 ## Installation
 
@@ -67,7 +67,7 @@ $ brew install carthage
 To integrate PodigeeEmbedKit into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "podigee/PodigeeEmbedKit" ~> 1.0.0
+github "podigee/PodigeeEmbedKit" ~> 1.1.0
 ```
 
 </details>
@@ -85,7 +85,7 @@ import PackageDescription
 let package = Package(
     name: "HelloPodigeeEmbedKit",
     dependencies: [
-        .package(url: "https://github.com/podigee/PodigeeEmbedKit.git", .upToNextMajor(from: "1.0.0"))
+        .package(url: "https://github.com/podigee/PodigeeEmbedKit.git", .upToNextMajor(from: "1.1.0"))
     ],
     targets: [
         .target(name: "HelloPodigeeEmbedKit", dependencies: ["PodigeeEmbedKit"])
@@ -109,13 +109,17 @@ Requesting embed data returns
 If you do not define a specific episode this will return metadata for the most recently published episode of this podcast.
 
 ```swift
-  let podcastDomain = "podcast-news.podigee.io"
-  PodigeeEmbedKit.embedDataForPodcastWith(domain: podcastDomain) { (podcastEmbed, error) in
-      let podcastTitle = podcastEmbed?.podcast.title
-      let episode = podcastEmbed?.episode
-      let episodeTitle = episode?.title
-      let mp3Url = episode?.media.mp3
-  }
+let podcastDomain = "podcast-news.podigee.io"
+PodigeeEmbedKit.embedDataForPodcastWith(domain: podcastDomain) { result in
+    switch result {
+    case .failure(let error): break
+    case .success(let podcastEmbed):
+        let podcastTitle = podcastEmbed.podcast.title
+        let episode = podcastEmbed.episode
+        let episodeTitle = episode.title
+        let mp3Url = episode.media.mp3        
+    }
+}
 ```
 
 The `podcastEmbed` struct which is returned is defined like this:
@@ -146,11 +150,15 @@ let url = episode.coverartUrlFor(width: 720)
 You can also request embed information for a specific episode of a podcast. In this case you have to provide the `episodePath` in addidation to the podcast domain. In this case the path to the episode is `7-podcatcher-in-the-rye`.
 
 ```swift
-  PodigeeEmbedKit.embedDataForPodcastWith(domain: "podcast-news.podigee.io", episodePath: "7-podcatcher-in-the-rye", complete: { (podcastEmbed, error) in
-      let title = podcastEmbed?.episode?.title
-      let subtitle = podcastEmbed?.episode?.subtitle
-      let number = podcastEmbed?.episode?.number
-  })
+PodigeeEmbedKit.embedDataForPodcastWith(domain: "podcast-news.podigee.io", episodePath: "7-podcatcher-in-the-rye", complete: { result in
+    switch result {
+    case .failure(let error): break
+    case .success(let podcastEmbed):
+        let title = podcastEmbed?.episode?.title
+        let subtitle = podcastEmbed?.episode?.subtitle
+        let number = podcastEmbed?.episode?.number
+    }
+})
 ```
 
 ### Request a list of published episodes
@@ -158,12 +166,16 @@ You can also request embed information for a specific episode of a podcast. In t
 You can also request a list of published episodes. By default this returns the last 10 episodes of the podcast sorted by publish date.
 
 ```swift
-  PodigeeEmbedKit.playlistForPodcastWith(domain: "podcast-news.podigee.io", complete: { (playlist, error) in
-      let episodes = playlist.episodes
-      for episode in episodes {
-        print(episode.title)
-      }
-  })
+PodigeeEmbedKit.playlistForPodcastWith(domain: "podcast-news.podigee.io", complete: { result in
+    switch result {
+    case .failure(let error): break
+    case .success(let playlist):
+        let episodes = playlist.episodes
+        for episode in episodes {
+            print(episode.title)
+        }         
+    }
+})
 ```
 
 **Paging**
@@ -171,15 +183,17 @@ You can also request a list of published episodes. By default this returns the l
 If you need more episodes you can use the paging parameters `pageSize` and `offset` to request episodes using multiple requests.
 
 ```swift
-  // fetch first 5 episodes
-  PodigeeEmbedKit.playlistForPodcastWith(domain: "podcast-news.podigee.io", pageSize: 5, offset: 0, complete: { (playlist, error) in
-      let episodes = playlist.episodes
-  })
+// fetch first 5 episodes
+PodigeeEmbedKit.playlistForPodcastWith(domain: "podcast-news.podigee.io", pageSize: 5, offset: 0, complete: { result in
+    let playlist = try? result.get()
+    let episodes = playlist?.episodes
+})
 
-  // fetch next 5 episodes
-  PodigeeEmbedKit.playlistForPodcastWith(domain: "podcast-news.podigee.io", pageSize: 5, offset: 5, complete: { (playlist, error) in
-    let episodes = playlist.episodes
-  })
+// fetch next 5 episodes
+PodigeeEmbedKit.playlistForPodcastWith(domain: "podcast-news.podigee.io", pageSize: 5, offset: 5, complete: { result in
+    let playlist = try? result.get()
+    let episodes = playlist?.episodes
+})
 ```
 
 The returned episodes count only matches the requested `pagesSize` if the podcast does have enough published episodes.
@@ -189,9 +203,10 @@ The returned episodes count only matches the requested `pagesSize` if the podcas
 Episodes can either be sorted by publish date or by episode number. If you do not set the sorting algorithm yourself the episodes are sorted by publish date by default.
 
 ```swift
-  PodigeeEmbedKit.playlistForPodcastWith(domain: "podcast-news.podigee.io", sortBy: .episodeNumber, complete: { (playlist, error) in
-      let episodes = playlist.episodes
-  })
+PodigeeEmbedKit.playlistForPodcastWith(domain: "podcast-news.podigee.io", sortBy: .episodeNumber, complete: { result in
+    let playlist = try? result.get()
+    let episodes = playlist?.episodes
+})
 ```
 
 ## Documentation

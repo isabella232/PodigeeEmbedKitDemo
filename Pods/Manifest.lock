@@ -1,7 +1,7 @@
 PODS:
-  - PodigeeEmbedKit (1.0.0):
-    - PodigeeEmbedKit/Core (= 1.0.0)
-  - PodigeeEmbedKit/Core (1.0.0)
+  - PodigeeEmbedKit (1.1.0):
+    - PodigeeEmbedKit/Core (= 1.1.0)
+  - PodigeeEmbedKit/Core (1.1.0)
 
 DEPENDENCIES:
   - PodigeeEmbedKit (from `https://github.com/podigee/PodigeeEmbedKit.git`, branch `master`)
@@ -13,12 +13,12 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   PodigeeEmbedKit:
-    :commit: 3905aec26cb161d2754e7fc3a9f75e32ba90437c
+    :commit: beae272e3185e3efe6720916b7d87f2041bc90e4
     :git: https://github.com/podigee/PodigeeEmbedKit.git
 
 SPEC CHECKSUMS:
-  PodigeeEmbedKit: 3f81cfab64bf20e84873e5617bee22d86802eece
+  PodigeeEmbedKit: 3db4675f09124cc2d659ba4071249971e3c7d705
 
 PODFILE CHECKSUM: 2a6ff90863a4636647f4481680ec5d782d39d271
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1
